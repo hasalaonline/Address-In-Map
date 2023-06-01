@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <title>Address to Map</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 0;
+        color: #333;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+      }
+
+      button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border-radius: 3px;
+        background-color: #4caf50;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Address to Map</h1>
+      <form id="details">
+        <input type="text" id="address" placeholder="Address" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      document.getElementById("details").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the submitted text
+        var address = document.getElementById("address").value;
+        var email = document.getElementById("email").value;
+
+        // Call the processForm function in Google Apps Script
+        google.script.run.processForm(address, email);
+      });
+    </script>
+  </body>
+</html>
